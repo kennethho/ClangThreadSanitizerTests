@@ -9,8 +9,10 @@ $ clang++ -std=c++11 [-stdlib=libc++] [-DUSE_BOOST_ATOMIC] [-DUSE_THREAD] -fsani
 $ ./a.out
 ```
 
-Building threadsanitizer_atomic_int.cpp
+Building threadsanitizer_shared_ptr.cpp
 =======================================
+
+Note that atomic operation on shared_ptr is not implemented in libstdc++, therefore without `-stdlib=libc++` compiler options, `-DUSE_BOOST_ATOMIC` must be specified.
 
 ```bash
 $ clang++ -std=c++11 -DUSE_BOOST_ATOMIC [-DUSE_THREAD]  -fsanitize=thread threadsanitizer_shared_ptr.cpp
